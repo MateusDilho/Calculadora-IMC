@@ -1,0 +1,4 @@
+#Tue Apr 11 08:34:38 BRT 2023
+base.0=C\:\\Users\\logonrmlocal\\Downloads\\flutter_calculadora_imc-layout\\flutter_calculadora_imc-layout\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
