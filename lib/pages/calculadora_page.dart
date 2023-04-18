@@ -20,6 +20,8 @@ class CalculadoraPage extends StatefulWidget {
 class _CalculadoraPageState extends State<CalculadoraPage> {
   Genero? generoSelecionado;
   int altura = 120;
+  int idade = 0;
+  double peso = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -71,12 +73,13 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             child: CustomCard(
               color: kActiveCardColour,
               child: SliderAltura(
-                  altura:altura,
-                onChanged: (double novaAltura){
-                  setState(() {
-                  altura = novaAltura.toInt();
-                    
-                  });
+                altura: altura,
+                onChanged: (double novaAltura) {
+                  setState(
+                    () {
+                      altura = novaAltura.toInt();
+                    },
+                  );
                 },
               ),
             ),
@@ -91,27 +94,43 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'IDADE',
+                          "IDADE",
                           style: kLabelTextStyle,
                         ),
-                        const Text(
-                          '0',
+                        Text(
+                          idade.toString(),
                           style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             RoundIconButton(
                               icon: Icons.add,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    idade += 1;
+                                  },
+                                );
+                              },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
                               icon: Icons.remove,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (idade > 0) {
+                                      idade -= 1;
+                                    }
+                                  },
+                                );
+                              },
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -126,24 +145,40 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                           'PESO',
                           style: kLabelTextStyle,
                         ),
-                        const Text(
-                          '0',
+                        Text(
+                          peso.toString(),
                           style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             RoundIconButton(
                               icon: Icons.add,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    peso += 1;
+                                  },
+                                );
+                              },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
                               icon: Icons.remove,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    if (peso > 0) {
+                                      peso -= 1;
+                                    }
+                                  },
+                                );
+                              },
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
